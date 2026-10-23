@@ -153,7 +153,7 @@ class BeaconPopup extends St.Widget {
             actor.get_effects()[0].radius = radius * this._scale;
         }
 
-        const accel = this._settings.get_strv('toggle-shortcut')[0] ?? '';
+        const accel = this._settings.get_strv('beacon-toggle')[0] ?? '';
         this._shortcutChip.text = accel.replace(/<(\w+)>/g, '$1 + ').replace(/space$/i, 'Space');
         this._shortcutChip.visible = accel !== '';
     }

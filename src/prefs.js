@@ -18,13 +18,13 @@ export default class BeaconPreferences extends ExtensionPreferences {
         const shortcut = new Adw.EntryRow({
             title: 'Kısayol (ör. <Alt>space, <Super>r)',
             show_apply_button: true,
-            text: settings.get_strv('toggle-shortcut')[0] ?? '',
+            text: settings.get_strv('beacon-toggle')[0] ?? '',
         });
         shortcut.connect('apply', () => {
             const accel = shortcut.text.trim();
             const [ok] = Gtk.accelerator_parse(accel);
             if (ok) {
-                settings.set_strv('toggle-shortcut', [accel]);
+                settings.set_strv('beacon-toggle', [accel]);
                 shortcut.remove_css_class('error');
             } else {
                 shortcut.add_css_class('error');

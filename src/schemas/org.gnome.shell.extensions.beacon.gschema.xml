@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
   <schema id="org.gnome.shell.extensions.beacon" path="/org/gnome/shell/extensions/beacon/">
-    <key name="toggle-shortcut" type="as">
+    <key name="beacon-toggle" type="as">
       <default><![CDATA[['<Alt>space']]]></default>
       <summary>Beacon'ı açıp kapatan kısayol</summary>
     </key>

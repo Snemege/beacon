@@ -26,14 +26,15 @@ export default class BeaconExtension extends Extension {
                 this._loadProviders();
         });
 
-        Main.wm.addKeybinding('toggle-shortcut', this._settings,
+        // Tuş bağı adları mutter'da global; başka eklentilerle çakışmasın diye önekli
+        Main.wm.addKeybinding('beacon-toggle', this._settings,
             Meta.KeyBindingFlags.IGNORE_AUTOREPEAT,
             Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW | Shell.ActionMode.POPUP,
             () => this._popup.toggle());
     }
 
     disable() {
-        Main.wm.removeKeybinding('toggle-shortcut');
+        Main.wm.removeKeybinding('beacon-toggle');
         this._settings.disconnect(this._settingsId);
         this._popup.close();
         this._popup.destroy();
