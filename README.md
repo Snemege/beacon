@@ -33,6 +33,19 @@ journalctl -f -o cat /usr/bin/gnome-shell   # loglar
 - Headless test yaparken `HOME`/`XDG_*` değişkenleri `dbus-run-session`'dan **önce**
   verilmeli; yoksa dconf servisi gerçek kullanıcı ayarlarına yazar.
 
+- **Tuş bağı adları mutter'da global.** `Main.wm.addKeybinding(isim, ...)` ile
+  kaydedilen isim tüm eklentiler arasında tek olmalı. Eskiden anahtarın adı
+  `toggle-shortcut` idi; Caffeine de aynı adı kullandığı ve önce yüklendiği için
+  Beacon'ın kaydı reddediliyor, Alt+Space hiç çalışmıyordu. Logda belirtisi:
+  `Trying to re-add keybinding "toggle-shortcut"`. Çözüm: anahtar `beacon-toggle`
+  olarak yeniden adlandırıldı. Yeni tuş bağı eklerken `beacon-` öneki kullanın.
+- Kısayol çalışmıyorsa kontrol listesi:
+  1. `journalctl -b -o cat /usr/bin/gnome-shell | grep -i keybinding` → "re-add" uyarısı var mı?
+  2. `grep -rl "<anahtar-adı>" ~/.local/share/gnome-shell/extensions/` → aynı adı kullanan başka eklenti var mı?
+  3. `dconf dump / | grep -i "alt>space"` → aynı tuşa bağlı başka bir kısayol var mı?
+  4. Wayland'da kod değişikliği ancak yeni oturumda (veya `./nested.sh`) yüklenir;
+     `gnome-extensions disable/enable` modülleri yeniden yüklemez.
+
 ## Yapı
 - `src/extension.js` – giriş noktası, kısayol, sağlayıcıların yüklenmesi
 - `src/popup.js` – arama paneli arayüzü
