@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.beacon" path="/org/gnome/shell/extensions/beacon/">
+    <key name="toggle-shortcut" type="as">
+      <default><![CDATA[['<Alt>space']]]></default>
+      <summary>Beacon'ı açıp kapatan kısayol</summary>
+    </key>
+    <key name="max-results" type="i">
+      <range min="3" max="30"/>
+      <default>8</default>
+      <summary>Gösterilecek en fazla sonuç sayısı</summary>
+    </key>
+    <key name="theme" type="s">
+      <choices>
+        <choice value="auto"/>
+        <choice value="dark"/>
+        <choice value="light"/>
+      </choices>
+      <default>'auto'</default>
+      <summary>Tema: sistemi izle, koyu veya açık</summary>
+    </key>
+    <key name="enable-blur" type="b">
+      <default>true</default>
+      <summary>Panelin arkasını bulanıklaştır (Liquid Glass)</summary>
+    </key>
+    <key name="blur-radius" type="i">
+      <range min="5" max="80"/>
+      <default>30</default>
+      <summary>Bulanıklık miktarı</summary>
+    </key>
+    <key name="enable-apps" type="b">
+      <default>true</default>
+      <summary>Uygulamalarda ara</summary>
+    </key>
+    <key name="enable-settings" type="b">
+      <default>true</default>
+      <summary>GNOME ayar panellerinde ara</summary>
+    </key>
+    <key name="enable-files" type="b">
+      <default>false</default>
+      <summary>Dosya adlarında ara (plocate)</summary>
+    </key>
+    <key name="enable-calc" type="b">
+      <default>true</default>
+      <summary>Hesap makinesi (ifade değerlendir)</summary>
+    </key>
+    <key name="enable-web" type="b">
+      <default>true</default>
+      <summary>Web'de ara / URL aç</summary>
+    </key>
+    <key name="enable-command" type="b">
+      <default>false</default>
+      <summary>$ ile kabuk komutu çalıştır</summary>
+    </key>
+    <key name="enable-currency" type="b">
+      <default>true</default>
+      <summary>Döviz çevir (güncel kur, ör. 40 usd to tl)</summary>
+    </key>
+  </schema>
+</schemalist>

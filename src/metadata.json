@@ -1,0 +1,9 @@
+{
+  "uuid": "beacon@vex.local",
+  "name": "Beacon",
+  "description": "Albert tarzı hızlı başlatıcı: kısayola bas, mouse hangi ekrandaysa orada ara. Uygulamalar, ayarlar, dosyalar.",
+  "shell-version": ["50"],
+  "settings-schema": "org.gnome.shell.extensions.beacon",
+  "version-name": "0.1.0",
+  "url": ""
+}
